@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protax E-Commerce Project - Complete Technical Report</title>
+    <style>
+        @page {
+            margin: 2cm;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .meta-info {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .meta-info div {
+            margin: 5px;
+        }
+        .meta-info strong {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            page-break-after: avoid;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+            page-break-after: avoid;
+        }
+        h4 {
+            color: #555;
+            margin-top: 20px;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            page-break-after: avoid;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin: 8px 0;
+        }
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            page-break-inside: avoid;
+        }
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        table th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .feature-list li:before {
+            content: "✓ ";
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .tech-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin: 3px;
+            font-size: 0.9em;
+        }
+        .architecture-diagram {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre;
+            overflow-x: auto;
+            page-break-inside: avoid;
+        }
+        .section {
+            margin-bottom: 40px;
+            page-break-inside: avoid;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #ecf0f1;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+            h2 {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Protax E-Commerce Project</h1>
+        <div class="subtitle">Complete Technical Documentation & Project Report</div>
+    </div>
+
+    <div class="meta-info">
+        <div><strong>Project Type:</strong> Full-stack E-Commerce Web Application</div>
+        <div><strong>Architecture:</strong> MVC Pattern</div>
+        <div><strong>Java Version:</strong> 11</div>
+        <div><strong>Report Date:</strong> January 2026</div>
+        <div><strong>Status:</strong> Active Development</div>
+    </div>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#overview">1. Project Overview</a></li>
+            <li><a href="#structure">2. Project Structure</a></li>
+            <li><a href="#frontend">3. Frontend Technologies</a></li>
+            <li><a href="#backend">4. Backend Technologies</a></li>
+            <li><a href="#database">5. Database</a></li>
+            <li><a href="#server">6. Server & Deployment</a></li>
+            <li><a href="#build">7. Build Tools</a></li>
+            <li><a href="#devtools">8. Development Tools</a></li>
+            <li><a href="#architecture">9. Architecture Pattern</a></li>
+            <li><a href="#summary">10. Technology Stack Summary</a></li>
+        </ul>
+    </div>
+
+    <div class="section" id="overview">
+        <h2>1. Project Overview</h2>
+        <p><strong>Project Name:</strong> Protax E-Commerce Store</p>
+        <p><strong>Type:</strong> Full-stack E-Commerce Web Application</p>
+        <p><strong>Architecture:</strong> MVC (Model-View-Controller) Pattern</p>
+        <p><strong>Java Version:</strong> 11</p>
+        <p><strong>Packaging:</strong> WAR (Web Application Archive)</p>
+        <p>This is a comprehensive e-commerce platform built using Java Enterprise Edition (Jakarta EE) with a modern, responsive frontend. The application provides complete functionality for online shopping including product browsing, cart management, order processing, user authentication, and administrative features.</p>
+    </div>
+
+    <div class="section" id="structure">
+        <h2>2. Project Structure</h2>
+        <pre>EcommerceProject/
+│
+├── src/                                    # Java Source Code
+│   ├── controller/                         # Servlet Controllers (MVC Controller)
+│   │   ├── admin/                         # Admin Controllers
+│   │   │   ├── AdminOrderServlet.java
+│   │   │   ├── AdminProductServlet.java
+│   │   │   └── SeedProductsServlet.java
+│   │   ├── AddressServlet.java
+│   │   ├── CartServlet.java
+│   │   ├── CheckoutServlet.java
+│   │   ├── LoginServlet.java
+│   │   ├── LogoutServlet.java
+│   │   ├── OrderServlet.java
+│   │   ├── ProductDetailServlet.java
+│   │   ├── ProductServlet.java
+│   │   ├── RegisterServlet.java
+│   │   ├── ReviewServlet.java
+│   │   ├── SearchServlet.java
+│   │   └── WishlistServlet.java
+│   │
+│   ├── dao/                                # Data Access Objects (Database Layer)
+│   │   ├── AddressDAO.java
+│   │   ├── CartDAO.java
+│   │   ├── CategoryDAO.java
+│   │   ├── CouponDAO.java
+│   │   ├── DBConnection.java              # Database Connection Manager
+│   │   ├── OrderDAO.java
+│   │   ├── ProductDAO.java
+│   │   ├── ReviewDAO.java
+│   │   ├── UserDAO.java
+│   │   └── WishlistDAO.java
+│   │
+│   ├── filter/                             # Servlet Filters
+│   │   ├── CharacterEncodingFilter.java   # UTF-8 Encoding Filter
+│   │   └── LoggingFilter.java             # Request/Response Logging
+│   │
+│   ├── model/                              # Data Models (MVC Model)
+│   │   ├── Address.java
+│   │   ├── Cart.java
+│   │   ├── Category.java
+│   │   ├── Coupon.java
+│   │   ├── Order.java
+│   │   ├── OrderItem.java
+│   │   ├── Product.java
+│   │   ├── Review.java
+│   │   ├── User.java
+│   │   └── Wishlist.java
+│   │
+│   ├── util/                               # Utility Classes
+│   │   ├── EmailService.java              # Email Sending Service
+│   │   ├── ImageUrlUpdater.java           # Database Image URL Updater
+│   │   ├── PaymentService.java           # Payment Processing
+│   │   └── ProductSeeder.java             # Database Seeder
+│   │
+│   ├── main/resources/
+│   │   └── db.properties                  # Database Configuration
+│   │
+│   └── test/java/                          # Unit Tests
+│       └── dao/
+│           └── CouponDAOTest.java
+│
+├── WebContent/                             # Web Application Root (Deployed as WAR)
+│   ├── WEB-INF/
+│   │   └── web.xml                        # Servlet Configuration (Jakarta EE 6.0)
+│   │
+│   ├── includes/                           # JSP Includes (Reusable Components)
+│   │   ├── amazon-header.jsp              # Main Header Navigation
+│   │   ├── footer.jsp                     # Footer Component
+│   │   └── header.jsp                     # Alternative Header
+│   │
+│   ├── admin/                              # Admin Panel Pages
+│   │   ├── dashboard.jsp
+│   │   ├── order-details.jsp
+│   │   ├── orders.jsp
+│   │   ├── product-form.jsp
+│   │   └── products.jsp
+│   │
+│   ├── css/                                # Stylesheets
+│   │   ├── amazon-carousel.css            # Carousel Styles
+│   │   ├── amazon-home.css                # Home Page Styles
+│   │   ├── enhanced.css                   # Enhanced UI Styles
+│   │   ├── fix-duplicate-rupee.css        # Currency Fix Styles
+│   │   ├── header-products.css            # Header Styles
+│   │   ├── home.css                       # Home Page Styles
+│   │   ├── product-images-fix.css         # Image Handling Styles
+│   │   ├── products.css                   # Product Listing Styles
+│   │   └── style.css                      # Global Styles
+│   │
+│   ├── js/                                 # JavaScript Files
+│   │   ├── fix-rupee-encoding.js          # Currency Symbol Fix
+│   │   ├── image-handler.js               # Image Loading Handler
+│   │   ├── main.js                        # Main JavaScript Logic
+│   │   └── price-formatter.js             # Price Formatting Utility
+│   │
+│   ├── uploads/                            # Product Images Directory
+│   │   ├── coffee-maker.jpg
+│   │   ├── football.jpg
+│   │   ├── java-book.jpg
+│   │   ├── jeans.jpg
+│   │   ├── laptop.jpg
+│   │   ├── smartphone.jpg
+│   │   └── tshirt.jpg
+│   │
+│   ├── index.jsp                           # Home Page
+│   ├── products.jsp                        # Product Listing Page
+│   ├── product-detail.jsp                  # Product Detail Page
+│   ├── cart.jsp                            # Shopping Cart Page
+│   ├── checkout.jsp                         # Checkout Page
+│   ├── login.jsp                            # Login Page
+│   ├── register.jsp                         # Registration Page
+│   ├── wishlist.jsp                         # Wishlist Page
+│   ├── order-history.jsp                    # Order History Page
+│   ├── order-details.jsp                    # Order Details Page
+│   └── addresses.jsp                        # Address Management Page
+│
+├── photos/                                  # Source Product Images (Development)
+├── target/                                  # Maven Build Output (Compiled Classes)
+├── pom.xml                                  # Maven Project Configuration
+├── db.properties                            # Database Properties (Root)
+├── database_schema_postgresql.sql           # Database Schema Script
+├── insert_products.sql                      # Product Data Insert Script
+├── insert_products_simple.sql               # Simplified Product Data
+├── update_product_images.sql                # Image URL Update Script
+└── create_database.sql                      # Database Creation Script</pre>
+    </div>
+
+    <div class="section" id="frontend">
+        <h2>3. Frontend Technologies</h2>
+        
+        <h3>3.1 Core Technologies</h3>
+        <ul class="feature-list">
+            <li><strong>HTML5</strong> - Structure and semantic markup</li>
+            <li><strong>CSS3</strong> - Styling and layout
+                <ul>
+                    <li>Flexbox & Grid Layout</li>
+                    <li>CSS Animations & Transitions</li>
+                    <li>Media Queries (Responsive Design)</li>
+                    <li>Custom CSS Variables</li>
+                </ul>
+            </li>
+            <li><strong>JavaScript (ES6+)</strong> - Client-side interactivity
+                <ul>
+                    <li>DOM Manipulation</li>
+                    <li>Event Handling</li>
+                    <li>AJAX/Fetch API</li>
+                    <li>MutationObserver API</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>3.2 Frontend Frameworks & Libraries</h3>
+        
+        <h4>Bootstrap 5.3.0</h4>
+        <p><strong>CDN:</strong> <code>https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css</code></p>
+        <p><strong>Purpose:</strong> Responsive grid system, components, utilities</p>
+        <p><strong>Usage:</strong> Navigation bars, forms, modals, responsive layout</p>
+
+        <h4>Font Awesome 6.4.0</h4>
+        <p><strong>CDN:</strong> <code>https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css</code></p>
+        <p><strong>Purpose:</strong> Icon library</p>
+        <p><strong>Usage:</strong> Navigation icons, product ratings (stars), UI icons</p>
+
+        <h3>3.3 Frontend Features</h3>
+        <ul class="feature-list">
+            <li>Responsive Design (Mobile, Tablet, Desktop)</li>
+            <li>Dynamic Product Carousel with Auto-advance</li>
+            <li>Real-time Price Formatting</li>
+            <li>Image Lazy Loading & Error Handling</li>
+            <li>Shopping Cart Management</li>
+            <li>Wishlist Functionality</li>
+            <li>Search Functionality</li>
+            <li>Category Filtering</li>
+            <li>Pagination</li>
+            <li>UTF-8 Character Encoding Fixes (Rupee Symbol ₹)</li>
+        </ul>
+
+        <h3>3.4 Custom JavaScript Modules</h3>
+        <ul>
+            <li><code>main.js</code> - Core application logic</li>
+            <li><code>price-formatter.js</code> - Currency formatting utilities</li>
+            <li><code>image-handler.js</code> - Image loading and error handling</li>
+            <li><code>fix-rupee-encoding.js</code> - Character encoding fixes</li>
+        </ul>
+    </div>
+
+    <div class="section" id="backend">
+        <h2>4. Backend Technologies</h2>
+        
+        <h3>4.1 Core Framework</h3>
+        <ul>
+            <li><strong>Java 11</strong> - Programming Language</li>
+            <li><strong>Jakarta EE 6.0</strong> (formerly Java EE)
+                <ul>
+                    <li>Jakarta Servlet API 6.0.0</li>
+                    <li>Jakarta Server Pages (JSP)</li>
+                    <li>Jakarta Mail API 2.1.2</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>4.2 Backend Architecture</h3>
+        <p><strong>MVC Pattern</strong> (Model-View-Controller)</p>
+        <ul>
+            <li><strong>Model:</strong> <code>model/</code> package (Java POJOs)</li>
+            <li><strong>View:</strong> JSP files in <code>WebContent/</code></li>
+            <li><strong>Controller:</strong> Servlet classes in <code>controller/</code> package</li>
+        </ul>
+
+        <h3>4.3 Key Backend Components</h3>
+        
+        <h4>Servlets (Controllers)</h4>
+        <ul>
+            <li>Handle HTTP requests/responses</li>
+            <li>Process form submissions</li>
+            <li>Manage session state</li>
+            <li>Route requests to appropriate views</li>
+        </ul>
+
+        <h4>DAO Pattern (Data Access Objects)</h4>
+        <ul>
+            <li>Abstraction layer for database operations</li>
+            <li>Located in <code>dao/</code> package</li>
+            <li>Handles CRUD operations</li>
+            <li>Manages database connections</li>
+        </ul>
+
+        <h4>Filters</h4>
+        <ul>
+            <li><code>CharacterEncodingFilter</code> - Ensures UTF-8 encoding globally</li>
+            <li><code>LoggingFilter</code> - Logs requests/responses for debugging</li>
+        </ul>
+
+        <h4>Utility Services</h4>
+        <ul>
+            <li><code>EmailService</code> - Email notifications (Jakarta Mail)</li>
+            <li><code>PaymentService</code> - Payment processing logic</li>
+            <li><code>ProductSeeder</code> - Database seeding utility</li>
+            <li><code>ImageUrlUpdater</code> - Database image URL management</li>
+        </ul>
+
+        <h3>4.4 Session Management</h3>
+        <ul>
+            <li>HTTP Sessions for user authentication</li>
+            <li>Session timeout: 30 minutes</li>
+            <li>Secure cookies (http-only)</li>
+        </ul>
+    </div>
+
+    <div class="section" id="database">
+        <h2>5. Database</h2>
+        
+        <h3>5.1 Database System</h3>
+        <ul>
+            <li><strong>PostgreSQL</strong> (Version 42.7.4)</li>
+            <li><strong>Driver:</strong> <code>org.postgresql:postgresql:42.7.4</code></li>
+        </ul>
+
+        <h3>5.2 Database Configuration</h3>
+        <pre>Host: localhost
+Port: 5432
+Database Name: ecommerce
+User: postgres</pre>
+
+        <h3>5.3 Database Schema</h3>
+        <p><strong>Core Tables:</strong></p>
+        <table>
+            <tr>
+                <th>Table Name</th>
+                <th>Purpose</th>
+                <th>Key Fields</th>
+            </tr>
+            <tr>
+                <td>users</td>
+                <td>User accounts and authentication</td>
+                <td>id, name, email, password, phone, role, created_at</td>
+            </tr>
+            <tr>
+                <td>categories</td>
+                <td>Product categories</td>
+                <td>id, name, description</td>
+            </tr>
+            <tr>
+                <td>products</td>
+                <td>Product catalog</td>
+                <td>id, name, description, price, category_id, image_url, stock, brand, rating, created_at</td>
+            </tr>
+            <tr>
+                <td>cart</td>
+                <td>Shopping cart items</td>
+                <td>id, user_id, product_id, quantity</td>
+            </tr>
+            <tr>
+                <td>orders</td>
+                <td>Order records</td>
+                <td>id, user_id, total_amount, status, order_date, shipping_address_id</td>
+            </tr>
+            <tr>
+                <td>order_items</td>
+                <td>Order line items</td>
+                <td>id, order_id, product_id, quantity, price</td>
+            </tr>
+            <tr>
+                <td>addresses</td>
+                <td>User shipping addresses</td>
+                <td>id, user_id, street, city, state, zip_code, country, phone</td>
+            </tr>
+            <tr>
+                <td>wishlist</td>
+                <td>User wishlists</td>
+                <td>id, user_id, product_id</td>
+            </tr>
+            <tr>
+                <td>reviews</td>
+                <td>Product reviews</td>
+                <td>id, product_id, user_id, rating, comment, created_at</td>
+            </tr>
+            <tr>
+                <td>coupons</td>
+                <td>Discount coupons</td>
+                <td>id, code, discount_percent, valid_from, valid_to</td>
+            </tr>
+        </table>
+
+        <h3>5.4 Database Tools</h3>
+        <ul>
+            <li><strong>pgAdmin</strong> - PostgreSQL Administration Tool (GUI)</li>
+            <li><strong>SQL Scripts:</strong>
+                <ul>
+                    <li><code>database_schema_postgresql.sql</code> - Complete schema creation</li>
+                    <li><code>insert_products.sql</code> - Sample product data</li>
+                    <li><code>update_product_images.sql</code> - Image URL updates</li>
+                    <li><code>create_database.sql</code> - Database initialization</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section" id="server">
+        <h2>6. Server & Deployment</h2>
+        
+        <h3>6.1 Application Server</h3>
+        <ul>
+            <li><strong>Eclipse Jetty 11.0.20</strong>
+                <ul>
+                    <li>Embedded server via Maven plugin</li>
+                    <li>Supports Jakarta EE 6.0</li>
+                    <li>JSP support via Apache JSP module</li>
+                    <li>Port: <strong>8081</strong></li>
+                    <li>Context Path: <code>/</code> (root)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>6.2 Server Configuration</h3>
+        <pre>&lt;plugin&gt;
+    &lt;groupId&gt;org.eclipse.jetty&lt;/groupId&gt;
+    &lt;artifactId&gt;jetty-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;11.0.20&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;httpConnector&gt;
+            &lt;port&gt;8081&lt;/port&gt;
+        &lt;/httpConnector&gt;
+        &lt;webApp&gt;
+            &lt;contextPath&gt;/&lt;/contextPath&gt;
+        &lt;/webApp&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+
+        <h3>6.3 Running the Server</h3>
+        <pre># PowerShell
+mvn jetty:run
+
+# Or use provided scripts
+.\run-jetty.ps1
+.\run_server.ps1</pre>
+
+        <h3>6.4 Access URL</h3>
+        <ul>
+            <li><strong>Local:</strong> <code>http://localhost:8081</code></li>
+            <li><strong>Home Page:</strong> <code>http://localhost:8081/index.jsp</code></li>
+        </ul>
+    </div>
+
+    <div class="section" id="build">
+        <h2>7. Build Tools</h2>
+        
+        <h3>7.1 Maven 3.x</h3>
+        <ul>
+            <li><strong>Project Management:</strong> Dependency management, build automation</li>
+            <li><strong>Packaging:</strong> WAR (Web Application Archive)</li>
+            <li><strong>Java Version:</strong> 11</li>
+        </ul>
+
+        <h3>7.2 Maven Plugins</h3>
+        <table>
+            <tr>
+                <th>Plugin</th>
+                <th>Version</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>Maven Compiler Plugin</td>
+                <td>3.11.0</td>
+                <td>Compiles Java source code (Source/Target: Java 11)</td>
+            </tr>
+            <tr>
+                <td>Maven WAR Plugin</td>
+                <td>3.3.2</td>
+                <td>Packages application as WAR file (Source directory: WebContent/)</td>
+            </tr>
+            <tr>
+                <td>Jetty Maven Plugin</td>
+                <td>11.0.20</td>
+                <td>Embedded server for development, hot reload support, JSP compilation</td>
+            </tr>
+            <tr>
+                <td>Exec Maven Plugin</td>
+                <td>3.1.1</td>
+                <td>Executes Java utility classes (Main class: util.ImageUrlUpdater)</td>
+            </tr>
+            <tr>
+                <td>Maven Surefire Plugin</td>
+                <td>3.2.5</td>
+                <td>Runs unit tests, JUnit 5 integration</td>
+            </tr>
+        </table>
+
+        <h3>7.3 Maven Dependencies</h3>
+        
+        <h4>Core Dependencies:</h4>
+        <ul>
+            <li><strong>Jakarta Servlet API 6.0.0</strong> - Servlet framework</li>
+            <li><strong>PostgreSQL Driver 42.7.4</strong> - Database connectivity</li>
+            <li><strong>Jakarta Mail API 2.1.2</strong> - Email functionality</li>
+            <li><strong>Angus Mail 2.0.3</strong> - Jakarta Mail implementation</li>
+            <li><strong>SLF4J Simple 2.0.13</strong> - Logging framework</li>
+        </ul>
+
+        <h4>Testing Dependencies:</h4>
+        <ul>
+            <li><strong>JUnit Jupiter 5.10.2</strong> - Unit testing framework</li>
+            <li><strong>Mockito 5.12.0</strong> - Mocking framework</li>
+        </ul>
+    </div>
+
+    <div class="section" id="devtools">
+        <h2>8. Development Tools</h2>
+        
+        <h3>8.1 IDE Support</h3>
+        <ul>
+            <li><strong>Eclipse</strong> (`.project`, `.classpath`, `.settings/`)</li>
+            <li>Compatible with IntelliJ IDEA, VS Code</li>
+        </ul>
+
+        <h3>8.2 Version Control</h3>
+        <ul>
+            <li>Git (`.gitignore` patterns)</li>
+        </ul>
+
+        <h3>8.3 Scripts & Utilities</h3>
+        
+        <h4>PowerShell Scripts:</h4>
+        <ul>
+            <li><code>run_server.ps1</code> - Start Jetty server</li>
+            <li><code>run-jetty.ps1</code> - Alternative server start</li>
+            <li><code>run-image-updater.ps1</code> - Update product images</li>
+            <li><code>fix-port-8081.ps1</code> - Kill processes on port 8081</li>
+            <li><code>setup_database.ps1</code> - Database setup automation</li>
+        </ul>
+
+        <h4>Batch Scripts:</h4>
+        <ul>
+            <li><code>run_server.bat</code> - Windows batch server start</li>
+            <li><code>run-image-updater.bat</code> - Image updater batch script</li>
+            <li><code>fix-port-8081.bat</code> - Port cleanup batch script</li>
+        </ul>
+
+        <h3>8.4 Development Workflow</h3>
+        <ol>
+            <li><strong>Database Setup:</strong> Run <code>database_schema_postgresql.sql</code></li>
+            <li><strong>Seed Data:</strong> Run <code>insert_products.sql</code> or use <code>ProductSeeder</code></li>
+            <li><strong>Start Server:</strong> <code>mvn jetty:run</code> or use scripts</li>
+            <li><strong>Access:</strong> <code>http://localhost:8081</code></li>
+            <li><strong>Hot Reload:</strong> Jetty automatically recompiles JSPs</li>
+        </ol>
+    </div>
+
+    <div class="section" id="architecture">
+        <h2>9. Architecture Pattern</h2>
+        
+        <h3>9.1 MVC (Model-View-Controller)</h3>
+        <div class="architecture-diagram">┌─────────────────────────────────────────────────────────┐
+│                    CLIENT BROWSER                       │
+│  (HTML, CSS, JavaScript, Bootstrap, Font Awesome)        │
+└────────────────────┬────────────────────────────────────┘
+                     │ HTTP Request
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│              SERVLET CONTROLLERS                        │
+│  (ProductServlet, CartServlet, LoginServlet, etc.)      │
+│  - Handle HTTP requests                                 │
+│  - Process business logic                               │
+│  - Manage sessions                                      │
+└────────────┬──────────────────────┬─────────────────────┘
+             │                      │
+             │                      │
+    ┌────────▼────────┐    ┌──────▼──────────┐
+    │   DAO LAYER      │    │   MODEL LAYER    │
+    │  (Data Access)   │◄───┤  (Java POJOs)    │
+    │                  │    │                  │
+    │  - ProductDAO    │    │  - Product       │
+    │  - UserDAO       │    │  - User          │
+    │  - CartDAO       │    │  - Cart          │
+    │  - OrderDAO      │    │  - Order         │
+    └────────┬─────────┘    └──────────────────┘
+             │
+             │ SQL Queries
+             ▼
+    ┌─────────────────────┐
+    │   POSTGRESQL DB      │
+    │   (ecommerce)        │
+    └─────────────────────┘
+             │
+             │
+    ┌────────▼─────────┐
+    │   JSP VIEWS       │
+    │  (index.jsp,      │
+    │   products.jsp,   │
+    │   cart.jsp, etc.) │
+    └──────────────────┘</div>
+
+        <h3>9.2 Request Flow Example</h3>
+        <ol>
+            <li><strong>User</strong> clicks "Add to Cart" → JavaScript sends HTTP request</li>
+            <li><strong>CartServlet</strong> receives request → Validates session → Processes cart logic</li>
+            <li><strong>CartDAO</strong> → Executes SQL → Updates database</li>
+            <li><strong>CartServlet</strong> → Forwards to <code>cart.jsp</code></li>
+            <li><strong>JSP</strong> → Renders HTML with cart data</li>
+            <li><strong>Response</strong> → Sent back to browser</li>
+        </ol>
+    </div>
+
+    <div class="section" id="summary">
+        <h2>10. Technology Stack Summary</h2>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Technology</th>
+                <th>Version/Purpose</th>
+            </tr>
+            <tr>
+                <td><strong>Language</strong></td>
+                <td>Java</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td><strong>Web Framework</strong></td>
+                <td>Jakarta EE</td>
+                <td>6.0</td>
+            </tr>
+            <tr>
+                <td><strong>View Technology</strong></td>
+                <td>JSP (Jakarta Server Pages)</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>Database</strong></td>
+                <td>PostgreSQL</td>
+                <td>42.7.4 (Driver)</td>
+            </tr>
+            <tr>
+                <td><strong>Application Server</strong></td>
+                <td>Eclipse Jetty</td>
+                <td>11.0.20</td>
+            </tr>
+            <tr>
+                <td><strong>Build Tool</strong></td>
+                <td>Apache Maven</td>
+                <td>3.x</td>
+            </tr>
+            <tr>
+                <td><strong>Frontend Framework</strong></td>
+                <td>Bootstrap</td>
+                <td>5.3.0</td>
+            </tr>
+            <tr>
+                <td><strong>Icons</strong></td>
+                <td>Font Awesome</td>
+                <td>6.4.0</td>
+            </tr>
+            <tr>
+                <td><strong>Email</strong></td>
+                <td>Jakarta Mail</td>
+                <td>2.1.2</td>
+            </tr>
+            <tr>
+                <td><strong>Logging</strong></td>
+                <td>SLF4J</td>
+                <td>2.0.13</td>
+            </tr>
+            <tr>
+                <td><strong>Testing</strong></td>
+                <td>JUnit Jupiter</td>
+                <td>5.10.2</td>
+            </tr>
+            <tr>
+                <td><strong>Testing</strong></td>
+                <td>Mockito</td>
+                <td>5.12.0</td>
+            </tr>
+        </table>
+
+        <h3>Quick Start Commands</h3>
+        <pre># 1. Setup Database
+psql -U postgres -f database_schema_postgresql.sql
+
+# 2. Start Server
+mvn jetty:run
+# OR
+.\run-jetty.ps1
+
+# 3. Access Application
+# Open browser: http://localhost:8081
+
+# 4. Run Utility Classes
+mvn exec:java
+# OR
+.\run-image-updater.ps1
+
+# 5. Build WAR File
+mvn clean package
+# Output: target/EcommerceProject-1.0.war</pre>
+    </div>
+
+    <div class="section">
+        <h2>11. Additional Notes</h2>
+        <ul>
+            <li><strong>Character Encoding:</strong> UTF-8 enforced globally via <code>CharacterEncodingFilter</code></li>
+            <li><strong>Image Storage:</strong> Product images stored in <code>WebContent/uploads/</code></li>
+            <li><strong>Session Management:</strong> 30-minute timeout, secure cookies</li>
+            <li><strong>Error Handling:</strong> Custom error pages configured in <code>web.xml</code></li>
+            <li><strong>Development Mode:</strong> Jetty hot-reload enabled for JSP changes</li>
+            <li><strong>Production Deployment:</strong> WAR file can be deployed to Tomcat, WildFly, or any Jakarta EE server</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p><strong>Protax E-Commerce Project - Complete Technical Report</strong></p>
+        <p>Generated: January 2026 | Status: Active Development</p>
+        <p class="no-print">To generate PDF: Use browser's Print function (Ctrl+P) and select "Save as PDF"</p>
+    </div>
+</body>
+</html>

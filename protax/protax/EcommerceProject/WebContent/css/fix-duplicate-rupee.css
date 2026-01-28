@@ -1,0 +1,42 @@
+/* Fix Duplicate Rupee Symbol - Remove all CSS-generated rupee symbols */
+
+/* AGGRESSIVE FIX: Remove ALL ::before and ::after content from price elements */
+.product-price::before,
+.product-price::after,
+.amazon-product-price::before,
+.amazon-product-price::after,
+.amazon-product-price-container::before,
+.amazon-product-price-container::after,
+.amazon-product-price-original::before,
+.amazon-product-price-original::after,
+.price::before,
+.price::after,
+[class*="price"]::before,
+[class*="price"]::after,
+*[class*="price"]::before,
+*[class*="price"]::after {
+    content: "" !important;
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+}
+
+/* Force remove any content from ALL price-related selectors */
+.price::before,
+.price::after,
+.product-price::before,
+.product-price::after,
+.amazon-product-price::before,
+.amazon-product-price::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Prevent any CSS from adding symbols - prices already have them in HTML */
+*::before[class*="price"],
+*::after[class*="price"] {
+    content: none !important;
+}
